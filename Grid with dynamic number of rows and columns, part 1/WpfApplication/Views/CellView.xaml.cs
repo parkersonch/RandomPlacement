@@ -17,30 +17,30 @@ namespace WpfApplication.Views
 		/// <summary>
 		/// Start color - the darkest color of the cell.
 		/// </summary>
-		public Color StartColor
+		public Color EmptyColor
 		{
-			get { return (Color)GetValue(StartColorProperty); }
-			set { SetValue(StartColorProperty, value); }
+			get { return (Color)GetValue(EmptyColorProperty); }
+			set { SetValue(EmptyColorProperty, value); }
 		}
 
-		public static readonly DependencyProperty StartColorProperty =
+		public static readonly DependencyProperty EmptyColorProperty =
 			DependencyProperty.Register(
-				"StartColor",
+				"EmptyColor",
 				typeof(Color),
 				typeof(CellView));
 
 		/// <summary>
 		/// Finish color - the lightest color of the cell.
 		/// </summary>
-		public Color FinishColor
+		public Color FilledColor
 		{
-			get { return (Color)GetValue(FinishColorProperty); }
-			set { SetValue(FinishColorProperty, value); }
+			get { return (Color)GetValue(FilledColorProperty); }
+			set { SetValue(FilledColorProperty, value); }
 		}
 
-		public static readonly DependencyProperty FinishColorProperty =
+		public static readonly DependencyProperty FilledColorProperty =
 			DependencyProperty.Register(
-				"FinishColor",
+				"FilledColor",
 				typeof(Color),
 				typeof(CellView));
 
@@ -56,6 +56,22 @@ namespace WpfApplication.Views
 		public static readonly DependencyProperty BorderColorProperty =
 			DependencyProperty.Register(
 				"BorderColor",
+				typeof(Color),
+				typeof(CellView));
+
+		/// <summary>
+		/// Selected Color
+		/// </summary>
+		/// 
+
+		public Color SelectedColor {
+			get { return (Color)GetValue(SelectedColorProperty); }
+			set { SetValue(SelectedColorProperty, value); }
+		}
+
+		public static readonly DependencyProperty SelectedColorProperty =
+			DependencyProperty.Register(
+				"SelectedColor",
 				typeof(Color),
 				typeof(CellView));
 

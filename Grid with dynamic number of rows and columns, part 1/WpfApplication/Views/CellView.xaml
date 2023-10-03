@@ -29,19 +29,19 @@
           <Setter Property="Border.Background" Value="DarkGray"/>
 
           <Style.Triggers>
-            <DataTrigger Binding="{Binding Path=Cell.State}" Value="False">
+            <DataTrigger Binding="{Binding Path=Cell.State}" Value="Empty">
               <Setter Property="Border.Background"
-                      Value="{Binding StartColor,
+                      Value="{Binding EmptyColor,
                               RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},
                               Converter={StaticResource ColorToBrushConverter},
-                              FallbackValue=#FF40FF40}"/>
+                              FallbackValue=#FF000000}"/>
             </DataTrigger>
-            <DataTrigger Binding="{Binding Path=Cell.State}" Value="True">
+            <DataTrigger Binding="{Binding Path=Cell.State}" Value="Filled">
               <Setter Property="Border.Background"
-                      Value="{Binding FinishColor,
+                      Value="{Binding FilledColor,
                               RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},
                               Converter={StaticResource ColorToBrushConverter},
-                              FallbackValue=#FFFF4040}"/>
+                              FallbackValue=#FF555555}"/>
             </DataTrigger>
           </Style.Triggers>
         </Style>

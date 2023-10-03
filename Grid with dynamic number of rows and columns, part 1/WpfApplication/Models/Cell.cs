@@ -17,10 +17,10 @@ namespace WpfApplication.Models
 
 		#region Implementation ICell
 
-		private bool _state;
+		private State _state;
 
-		[DefaultValue(false)]
-		public bool State
+		[DefaultValue(State.Empty)]
+        public State State
 		{
 			get { return _state; }
 			set { SetProperty(ref _state, value); }

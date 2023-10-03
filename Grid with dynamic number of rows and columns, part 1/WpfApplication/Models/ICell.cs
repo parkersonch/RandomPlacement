@@ -11,6 +11,12 @@ namespace WpfApplication.Models
 		/// <summary>
 		/// State of the cell.
 		/// </summary>
-		bool State { get; set; }
+		State State { get; set; }
+	}
+
+	public enum State {
+		Empty,
+		Filled,
+		Selected
 	}
 }

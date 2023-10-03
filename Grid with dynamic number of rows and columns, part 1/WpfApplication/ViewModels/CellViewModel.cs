@@ -33,8 +33,14 @@ namespace WpfApplication.ViewModels
 
 		private void ChangeCellState(object obj)
 		{
-			if (Cell != null)
-				Cell.State = !Cell.State;
+			if (Cell == null) return;
+
+			if (Cell.State == State.Empty) {
+				Cell.State = State.Filled;
+			} else if (Cell.State == State.Filled) {
+				Cell.State = State.Empty;
+			}
+				
 		}
 
 		private static bool CanChangeCellState(object obj)

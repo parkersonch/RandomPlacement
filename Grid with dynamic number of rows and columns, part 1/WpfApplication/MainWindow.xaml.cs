@@ -26,11 +26,12 @@ namespace WpfApplication
 			InitializeComponent();
 			var dynamicGridViewModel = new DynamicGridViewModel
 			{
-				GridWidth = 25,
-				GridHeight = 15,
-				BorderColor = Colors.Blue,
-				StartColor = Colors.Azure,
-				FinishColor = Colors.CornflowerBlue,
+				GridWidth = 3,
+				GridHeight = 3,
+				BorderColor = Colors.Gray,
+				EmptyColor = Colors.White,
+				FilledColor = Colors.CornflowerBlue,
+				SelectedColor = Colors.OrangeRed
 			};
 
 			DataContext = dynamicGridViewModel;

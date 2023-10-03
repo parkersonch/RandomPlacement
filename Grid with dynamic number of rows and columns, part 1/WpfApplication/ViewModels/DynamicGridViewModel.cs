@@ -7,8 +7,7 @@ using WpfApplication.Models;
 
 namespace WpfApplication.ViewModels
 {
-	public class DynamicGridViewModel : BaseNotifyPropertyChanged, IDynamicGridViewModel
-	{
+    public class DynamicGridViewModel : BaseNotifyPropertyChanged, IDynamicGridViewModel {
 		public DynamicGridViewModel()
 		{
 			this.SetDefaultValues();
@@ -44,9 +43,10 @@ namespace WpfApplication.ViewModels
 		private int _gridWidth;
 		private int _gridHeight;
 
-		private Color _startColor;                  // = Colors.AliceBlue;
-		private Color _finishColor;                 // = Colors.DarkBlue;
+		private Color _emptyColor;                  // = Colors.AliceBlue;
+		private Color _filledColor;                 // = Colors.DarkBlue;
 		private Color _borderColor;                 // = Colors.Gray;
+		private Color _selectedColor;
 
 		public ObservableCollection<ObservableCollection<ICellViewModel>> Cells
 		{
@@ -85,33 +85,39 @@ namespace WpfApplication.ViewModels
 		/// <summary>
 		/// Start, the lighter, color of cells.
 		/// </summary>
-		[DefaultValue(typeof(Color), "#FFF0F8FF")]
-		public Color StartColor
+		[DefaultValue(typeof(Color), "#FFFFFFFF")]
+		public Color EmptyColor
 		{
-			get { return _startColor; }
-			set { SetProperty(ref _startColor, value); }
+			get { return _emptyColor; }
+			set { SetProperty(ref _emptyColor, value); }
 		}
 
 		/// <summary>
 		/// Finish, the darker, color of cells.
 		/// </summary>
-		[DefaultValue(typeof(Color), "#FF00008B")]
-		public Color FinishColor
+		[DefaultValue(typeof(Color), "#FF000000")]
+		public Color FilledColor
 		{
-			get { return _finishColor; }
-			set { SetProperty(ref _finishColor, value); }
+			get { return _filledColor; }
+			set { SetProperty(ref _filledColor, value); }
 		}
 
 		/// <summary>
 		/// Color of borders around cells.
 		/// </summary>
-		[DefaultValue(typeof(Color), "#FF808080")]
+		[DefaultValue(typeof(Color), "#232323FF")]
 		public Color BorderColor
 		{
 			get { return _borderColor; }
 			set { SetProperty(ref _borderColor, value); }
 		}
 
-		#endregion
-	}
+		[DefaultValue(typeof(Color), "#FF666666")]
+        public Color SelectedColor {
+			get { return _selectedColor; }
+			set { SetProperty(ref _selectedColor, value); }
+		}
+
+        #endregion
+    }
 }

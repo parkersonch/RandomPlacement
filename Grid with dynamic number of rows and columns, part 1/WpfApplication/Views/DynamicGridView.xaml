@@ -15,32 +15,25 @@
 
         <converters:DivideDoubleConverter x:Key="DivideDoubleConverter" />
         <converters:DecreaseDoubleConverter x:Key="SubstractConverter" />
+        <system:Double x:Key="cellDimension">40</system:Double>
 
         <DataTemplate x:Key="CellTemplate">
             <Border BorderBrush="Transparent"
                     BorderThickness="1 0 1 0"
-                    DataContext="{Binding}">
-                <Border.Width>
-                    <MultiBinding Converter="{StaticResource DivideDoubleConverter}" ConverterParameter="2">
-                        <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}"
-                                 Path="ActualWidth" Mode="OneWay"
-                                 Converter="{StaticResource SubstractConverter}" ConverterParameter="2"/>
-                        <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}"
-                                 Path="DataContext.GridWidth" Mode="OneWay"/>
-                    </MultiBinding>
-                </Border.Width>
+                    DataContext="{Binding}"
+                    Width="{StaticResource cellDimension}">
 
                 <views:CellView
                     DataContext="{Binding}"
                     BorderColor="{Binding DataContext.BorderColor,
                                     RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}},
                                     Mode=OneWay, FallbackValue=#FF000000}"
-                    StartColor="{Binding DataContext.StartColor,
+                    EmptyColor="{Binding DataContext.StartColor,
                                     RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}},
-                                    Mode=OneWay, FallbackValue=#FFF0F0F0}"
-                    FinishColor="{Binding DataContext.FinishColor,
+                                    Mode=OneWay, FallbackValue=#FFFFFFFF}"
+                    FilledColor="{Binding DataContext.FinishColor,
                                     RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}},
-                                    Mode=OneWay, FallbackValue=#FF0F0F0F}"/>
+                                    Mode=OneWay, FallbackValue=#FF000000}"/>
             </Border>
         </DataTemplate>
 
@@ -64,18 +57,7 @@
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="IsTabStop" Value="False"/>
 
-            <Setter Property="RowHeight">
-                <Setter.Value>
-                    <MultiBinding Converter="{StaticResource DivideDoubleConverter}" ConverterParameter="2">
-                        <Binding RelativeSource="{RelativeSource Self}"
-                            Path="ActualHeight" Mode="OneWay"
-                            Converter="{StaticResource SubstractConverter}" ConverterParameter="2"/>
-                        <Binding Path="DataContext.GridHeight"
-                            RelativeSource="{RelativeSource Self}"
-                            Mode="OneWay"/>
-                    </MultiBinding>
-                </Setter.Value>
-            </Setter>
+            <Setter Property="RowHeight" Value="{StaticResource cellDimension}"/>
         </Style>
 
         <Style TargetType="{x:Type DataGridCell}">

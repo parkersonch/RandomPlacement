@@ -22,14 +22,19 @@ namespace WpfApplication.ViewModels
 		int GridHeight { get; }
 
 		/// <summary>
-		/// Start, the lighter, color of cells.
+		/// Empty cells.
 		/// </summary>s
-		Color StartColor { get; set; }
+		Color EmptyColor { get; set; }
 
 		/// <summary>
-		/// Finish, the darker, color of cells.
+		/// Non-empty cells.
 		/// </summary>
-		Color FinishColor { get; set; }
+		Color FilledColor { get; set; }
+
+		/// <summary>
+		/// Selected cells.
+		/// </summary>
+		Color SelectedColor { get; set; }
 
 		/// <summary>
 		/// Color of borders around cells.
